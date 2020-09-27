@@ -1,5 +1,5 @@
 import React from "react";
-import unsplaash from "../api/unsplaash";
+import unsplash from "../api/unsplash";
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
 export default class App extends React.Component {
@@ -10,7 +10,7 @@ export default class App extends React.Component {
   getValue = async (searchBarInputVal) =>{
     this.setState({searchWord: searchBarInputVal})
      try {
-      const response = await unsplaash.get("/search/photos", {
+      const response = await unsplash.get("/search/photos", {
         params : {
           query: searchBarInputVal
         }
@@ -25,7 +25,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <SearchBar passValbackToAppOnSumbit={this.getValue}/>
-        <ImageList images= {this.state.images} searchWord = {this.state.searchWord} />
+        <ImageList images= {this.state.images}/>
       </div>
     );
   }
